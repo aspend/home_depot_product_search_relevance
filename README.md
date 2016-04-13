@@ -9,6 +9,7 @@ The input of the queries is full of typos and there are some synonyms that work 
 The main points are:
 * We can use the dictionary created with google and posted in the discussion
 * We can find some pattern and modify text
+
 So far, I have followed [this] (https://www.kaggle.com/the1owl/home-depot-product-search-relevance/first-xgb-script/code) code  and I have added the google dictionary that is checking the typos. I believe it is already a good job. but I might have done some mistakes. (it takes quite a lot of time to run (10 min).. because I added the stemming on the product description). I did not use the stop words because we can use them just when we use TfIdf and word2vec..
 
 ## Feature Engineering
