@@ -68,6 +68,7 @@ def str_stem(s):
         s = re.sub(r"([a-z])( *)/( *)([a-z])", r"\1 \4", s)
         s = s.replace("*"," xbi ")
         s = s.replace(" by "," xbi ")
+        s = s.replace("deckov", "deck over")
         s = re.sub(r"([0-9])( *)\.( *)([0-9])", r"\1.\4", s)
         s = re.sub(r"([0-9]+)( *)(inches|inch|in|')\.?", r"\1in. ", s)
         s = re.sub(r"([0-9]+)( *)(foot|feet|ft|'')\.?", r"\1ft. ", s)
@@ -156,3 +157,4 @@ if __name__=="__main__":
     attribute, product_description, test, train, google_dict = import_data()
     df_all, num_train = data_merging(train, test, attribute, product_description)
     df_all = text_processing(df_all, google_dict)
+    df_all.to_csv('df_all.csv')
