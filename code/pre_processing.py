@@ -45,6 +45,7 @@ def str_stem(s):
         Return
             s -- stemmed string
     """
+    s= str(s)
     if isinstance(s, str):
         s = re.sub(r"(\w)\.([A-Z])", r"\1 \2", s) #Split words with a.A
         s = s.lower()
@@ -106,10 +107,10 @@ def import_data():
             google_dict -- dictionary that contains correction to the typos
     """
 
-    attribute = pd.read_csv('../input/attributes.csv')
-    product_description = pd.read_csv('../input/product_descriptions.csv')
-    test = pd.read_csv('../input/test.csv')
-    train = pd.read_csv('../input/train.csv')
+    attribute = pd.read_csv('../input/attributes.csv', encoding = "ISO-8859-1")
+    product_description = pd.read_csv('../input/product_descriptions.csv', encoding = "ISO-8859-1")
+    test = pd.read_csv('../input/test.csv', encoding = "ISO-8859-1")
+    train = pd.read_csv('../input/train.csv', encoding = "ISO-8859-1")
     google_dict = read_json('../input/google_dict.json')
     return attribute, product_description, test, train, google_dict
 
@@ -156,5 +157,5 @@ strNum = {'zero':0,'one':1,'two':2,'three':3,'four':4,'five':5,'six':6,'seven':7
 if __name__=="__main__":
     attribute, product_description, test, train, google_dict = import_data()
     df_all, num_train = data_merging(train, test, attribute, product_description)
-    df_all = text_processing(df_all, google_dict)
-    df_all.to_csv('df_all.csv')
+    # df_all = text_processing(df_all, google_dict)
+    # df_all.to_csv('df_all.csv')
